@@ -1,74 +1,183 @@
+/* General Body and Container Styles */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0d1b2a; /* Deeper navy background */
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevent scrollbar from animation */
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
   padding: 2rem;
   text-align: center;
-  font-family: "Arial", sans-serif;
-  background-color: #282c34;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .game-container {
-  background-color: #383c44;
-  padding: 3rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
+  background-color: #1b263b; /* More prominent navy container */
+  padding: 3.5rem 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #415a77; /* Lighter navy border */
+  transition: all 0.3s ease-in-out;
 }
 
+.game-container:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Typography */
 h1 {
-  color: #61dafb;
+  color: #778da9; /* Brighter accent blue for heading */
   margin-bottom: 1.5rem;
+  font-size: 2.8em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  color: #e0e1dd; /* Softer light blue for text */
 }
 
+/* Input and Button Styles */
 input[type="number"] {
-  padding: 0.8rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #61dafb;
-  margin-right: 1rem;
-  background-color: #1a1a1a;
-  color: white;
-  width: 100px;
+  padding: 0.9rem 1.2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 2px solid #415a77; /* Cohesive navy border */
+  margin-right: 1.2rem;
+  background-color: #0d1b2a; /* Darker navy for input background */
+  color: #e0e0e0;
+  width: 120px;
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #778da9;
+  box-shadow: 0 0 0 3px rgba(119, 141, 169, 0.4);
 }
 
 button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
   border: none;
-  background-color: #61dafb;
-  color: #282c34;
+  background-color: #415a77; /* Main button blue */
+  color: #e0e0e0;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(65, 90, 119, 0.4);
 }
 
 button:hover {
-  background-color: #21a1f1;
+  background-color: #778da9; /* Lighter blue on hover */
+  color: #0d1b2a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(119, 141, 169, 0.6);
 }
 
 button:disabled {
-  background-color: #4a4a4a;
+  background-color: #0b132b;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  color: #555;
+}
+
+/* Difficulty Selection */
+.difficulty-selection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #415a77;
+}
+
+.difficulty-selection p {
+  font-size: 1.1em;
+  color: #778da9;
+  margin-bottom: 1rem;
 }
 
 .difficulty-selection label {
-  margin: 0 0.5rem;
-  font-size: 1rem;
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  color: #e0e1dd;
+  transition: color 0.3s ease;
+}
+
+.difficulty-selection label:hover {
+  color: #778da9;
 }
 
 .difficulty-selection input[type="radio"] {
-  margin-right: 0.5rem;
+  margin-right: 0.7rem;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #415a77;
+  background-color: #1b263b;
+  transition: all 0.3s ease;
+  position: relative;
+  top: 1px;
+}
+
+.difficulty-selection input[type="radio"]:checked {
+  background-color: #778da9;
+  border-color: #778da9;
+  box-shadow: 0 0 0 4px rgba(119, 141, 169, 0.3);
+}
+
+.difficulty-selection input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #0d1b2a;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Feedback Message Animations */
+.feedback-message {
+  font-weight: bold;
+  animation: feedbackAnimation 0.8s ease-out forwards;
+}
+
+.feedback-message.correct {
+  color: #a4c6f7; /* Keep a light blue for correct feedback, but adjust to new palette */
+}
+
+.feedback-message.wrong {
+  color: #e63946; /* A more subtle red for wrong feedback */
+}
+
+@keyframes feedbackAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
