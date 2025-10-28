@@ -1,10 +1,10 @@
 /* General Body and Container Styles */
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1a1a2e;
+  background-color: #0d1b2a; /* Deeper navy background */
   color: #e0e0e0;
   display: flex;
   justify-content: center;
@@ -21,11 +21,11 @@ body {
 }
 
 .game-container {
-  background-color: #282a36;
+  background-color: #1b263b; /* More prominent navy container */
   padding: 3.5rem 2.5rem;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid #44475a;
+  border: 1px solid #415a77; /* Lighter navy border */
   transition: all 0.3s ease-in-out;
 }
 
@@ -35,7 +35,7 @@ body {
 
 /* Typography */
 h1 {
-  color: #bd93f9;
+  color: #778da9; /* Brighter accent blue for heading */
   margin-bottom: 1.5rem;
   font-size: 2.8em;
   font-weight: 700;
@@ -47,7 +47,7 @@ p {
   font-size: 1.3rem;
   margin-bottom: 1.2rem;
   line-height: 1.6;
-  color: #f8f8f2;
+  color: #e0e1dd; /* Softer light blue for text */
 }
 
 /* Input and Button Styles */
@@ -55,10 +55,10 @@ input[type="number"] {
   padding: 0.9rem 1.2rem;
   font-size: 1.1rem;
   border-radius: 8px;
-  border: 2px solid #6272a4;
+  border: 2px solid #415a77; /* Cohesive navy border */
   margin-right: 1.2rem;
-  background-color: #383a59;
-  color: #f8f8f2;
+  background-color: #0d1b2a; /* Darker navy for input background */
+  color: #e0e0e0;
   width: 120px;
   text-align: center;
   transition: all 0.3s ease;
@@ -66,8 +66,8 @@ input[type="number"] {
 
 input[type="number"]:focus {
   outline: none;
-  border-color: #bd93f9;
-  box-shadow: 0 0 0 3px rgba(189, 147, 249, 0.4);
+  border-color: #778da9;
+  box-shadow: 0 0 0 3px rgba(119, 141, 169, 0.4);
 }
 
 button {
@@ -75,39 +75,39 @@ button {
   font-size: 1.1rem;
   border-radius: 8px;
   border: none;
-  background-color: #50fa7b;
-  color: #282a36;
+  background-color: #415a77; /* Main button blue */
+  color: #e0e0e0;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(80, 250, 123, 0.4);
+  box-shadow: 0 4px 15px rgba(65, 90, 119, 0.4);
 }
 
 button:hover {
-  background-color: #8be9fd;
-  color: #282a36;
+  background-color: #778da9; /* Lighter blue on hover */
+  color: #0d1b2a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 233, 253, 0.6);
+  box-shadow: 0 6px 20px rgba(119, 141, 169, 0.6);
 }
 
 button:disabled {
-  background-color: #44475a;
+  background-color: #0b132b;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
-  color: #999;
+  color: #555;
 }
 
 /* Difficulty Selection */
 .difficulty-selection {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px dashed #44475a;
+  border-top: 1px dashed #415a77;
 }
 
 .difficulty-selection p {
   font-size: 1.1em;
-  color: #bd93f9;
+  color: #778da9;
   margin-bottom: 1rem;
 }
 
@@ -117,12 +117,12 @@ button:disabled {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  color: #f8f8f2;
+  color: #e0e1dd;
   transition: color 0.3s ease;
 }
 
 .difficulty-selection label:hover {
-  color: #50fa7b;
+  color: #778da9;
 }
 
 .difficulty-selection input[type="radio"] {
@@ -131,25 +131,25 @@ button:disabled {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid #6272a4;
-  background-color: #383a59;
+  border: 2px solid #415a77;
+  background-color: #1b263b;
   transition: all 0.3s ease;
   position: relative;
   top: 1px;
 }
 
 .difficulty-selection input[type="radio"]:checked {
-  background-color: #50fa7b;
-  border-color: #50fa7b;
-  box-shadow: 0 0 0 4px rgba(80, 250, 123, 0.3);
+  background-color: #778da9;
+  border-color: #778da9;
+  box-shadow: 0 0 0 4px rgba(119, 141, 169, 0.3);
 }
 
 .difficulty-selection input[type="radio"]:checked::before {
-  content: '';
+  content: "";
   display: block;
   width: 8px;
   height: 8px;
-  background-color: #282a36;
+  background-color: #0d1b2a;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -164,11 +164,11 @@ button:disabled {
 }
 
 .feedback-message.correct {
-  color: #50fa7b;
+  color: #a4c6f7; /* Keep a light blue for correct feedback, but adjust to new palette */
 }
 
 .feedback-message.wrong {
-  color: #ff5555;
+  color: #e63946; /* A more subtle red for wrong feedback */
 }
 
 @keyframes feedbackAnimation {
