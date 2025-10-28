@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# Number Guessing Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Number Guessing Game! This is a simple yet engaging web-based game where you try to guess a secret number within a limited number of attempts.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Optional Features](#optional-features)
+- [Error Handling](#error-handling)
+- [How to Play](#how-to-play)
+- [Setup and Installation](#setup-and-installation)
+- [Testing](#testing)
+- [Project Structure](#project-structure)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Random Secret Number Generation**: The game randomly selects a secret number between 1 and 100 for each new game.
+- **Interactive Guess Input**: Players can input their guesses through a graphical user interface.
+- **Instant Feedback**: After each guess, the game provides immediate feedback, indicating if the guess is too high, too low, or correct.
+- **Limited Attempts**: Players have a predefined number of attempts to guess the secret number.
+- **Win/Loss Messages**: Clear messages are displayed at the end of the game to indicate whether the player won or lost, along with the secret number if they lost.
+- **Restart Game**: Players can easily restart the game at any time without needing to reload the page.
+- **Difficulty Levels**: Choose from different difficulty levels (Easy, Medium, Hard), each with varying numbers of allowed guesses.
 
-## Expanding the ESLint configuration
+## Optional Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Difficulty Levels**: (Already implemented) Players can select from 'Easy', 'Medium', or 'Hard' modes, each providing a different number of attempts.
+- **Restart Game**: (Already implemented) The game can be restarted with a click of a button, resetting the secret number and attempts.
+- **Aesthetically Pleasing UI with Animations**: (Already implemented) The game features a modern, navy blue color theme with subtle animations for feedback messages to enhance the user experience.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Error Handling
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Input Validation**: Player inputs are validated to ensure they are indeed numbers and fall within the valid range (1 to 100). Invalid inputs trigger an informative feedback message.
+- **Robustness**: The game is designed to handle invalid inputs gracefully, ensuring the application does not crash or break.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## How to Play
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  **Start the Game**: The game begins automatically when you open the application. A secret number is generated, and you'll see a prompt to guess.
+2.  **Select Difficulty**: Choose your desired difficulty level (Easy, Medium, Hard) using the radio buttons. This will affect the number of attempts you have.
+3.  **Enter Your Guess**: Type a number between 1 and 100 into the input field.
+4.  **Submit Guess**: Click the "Guess" button to submit your guess.
+5.  **Receive Feedback**: The game will tell you if your guess was "Too low!", "Too high!", or "Correct!".
+6.  **Monitor Attempts**: Keep an eye on the "Attempts Left" counter. It decreases with each guess.
+7.  **Win or Lose**: If you guess the number correctly, you win! If you run out of attempts, you lose, and the secret number will be revealed.
+8.  **Play Again**: After the game ends, click the "Play Again" button to start a new round.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Setup and Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+To run this project locally, follow these steps:
+
+1.  **Clone the repository**:
+    ```bash
+    git clone <repository-url>
+    cd number-guess-game
+    ```
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Start the development server**:
+    ```bash
+    npm run dev
+    ```
+    The game will be accessible in your browser, usually at `http://localhost:5173`.
+
+## Testing
+
+This project uses Jest for unit testing of the core game logic.
+
+To run the tests:
+
+1.  Ensure all dependencies are installed (`npm install`).
+2.  Execute the test command:
+    ```bash
+    npm test
+    ```
+
+## Project Structure
+
+- `src/App.tsx`: The main application component, rendering the `Game` component.
+- `src/App.css`: Global styles and theme for the application, including animations.
+- `src/Game.tsx`: The primary game component, managing game state, user input, and displaying game information.
+- `src/gameLogic.ts`: Contains the core game logic functions, such as `generateSecretNumber`, `checkGuess`, `startGame`, and `makeGuess`.
+- `src/gameLogic.test.ts`: Unit tests for the core game logic functions.
+- `jest.config.cjs`: Jest configuration file for testing setup.
+- `tsconfig.json`, `tsconfig.app.json`, `tsconfig.node.json`: TypeScript configuration files.
+- `package.json`: Project dependencies and scripts.
