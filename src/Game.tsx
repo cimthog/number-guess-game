@@ -39,6 +39,9 @@ const Game: React.FC = () => {
       {gameState.gameOver && (
         gameState.hasWon ? <p>You won!</p> : <p>You lost! The secret number was {gameState.secretNumber}.</p>
       )}
+      {gameState.gameOver && (
+        <button onClick={() => setGameState(startGame(1, 100, 5))}>Play Again</button>
+      )}
     </div>
   );
 };
