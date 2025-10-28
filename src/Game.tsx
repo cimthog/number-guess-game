@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {
-  GameState,
+  type GameState,
   initialGameState,
   startGame,
   makeGuess,
-  Difficulty,
+  type Difficulty,
   difficultySettings,
 } from "./gameLogic";
 
