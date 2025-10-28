@@ -28,13 +28,26 @@ export const initialGameState: GameState = {
   hasWon: false,
 };
 
-export const startGame = (min: number, max: number, initialAttempts: number): GameState => {
+export type Difficulty = "easy" | "medium" | "hard";
+
+export const difficultySettings: Record<
+  Difficulty,
+  { attempts: number; range: [number, number] }
+> = {
+  easy: { attempts: 10, range: [1, 100] },
+  medium: { attempts: 7, range: [1, 100] },
+  hard: { attempts: 5, range: [1, 100] },
+};
+
+export const startGame = (difficulty: Difficulty): GameState => {
+  const { attempts, range } = difficultySettings[difficulty];
+  const [min, max] = range;
   const secretNumber = generateSecretNumber(min, max);
   return {
     ...initialGameState,
     secretNumber,
-    attemptsLeft: initialAttempts,
-    feedback: "Guess a number between " + min + " and " + max + ".",
+    attemptsLeft: attempts,
+    feedback: `Guess a number between ${min} and ${max}. You have ${attempts} attempts.`,
   };
 };
 
