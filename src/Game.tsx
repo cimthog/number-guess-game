@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {
-  GameState,
+  type GameState,
   initialGameState,
   startGame,
   makeGuess,
-  Difficulty,
+  type Difficulty,
   difficultySettings,
 } from "./gameLogic";
 
@@ -39,9 +39,7 @@ const Game: React.FC = () => {
   return (
     <div className="game-container">
       <h1>Number Guessing Game</h1>
-      <p className={gameState.feedback ? "feedback-message" : ""}>
-        {gameState.feedback}
-      </p>
+      <p>{gameState.feedback}</p>
       {!gameState.gameOver && (
         <div>
           <input
