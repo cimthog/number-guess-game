@@ -11,8 +11,8 @@ const Game: React.FC = () => {
 
   const handleGuess = () => {
     const parsedGuess = parseInt(guess);
-    if (isNaN(parsedGuess)) {
-      setGameState(prevState => ({ ...prevState, feedback: "Please enter a valid number." }));
+    if (isNaN(parsedGuess) || parsedGuess < 1 || parsedGuess > 100) {
+      setGameState(prevState => ({ ...prevState, feedback: "Please enter a number between 1 and 100." }));
       return;
     }
     const newGameState = makeGuess(gameState, parsedGuess);
