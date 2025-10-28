@@ -37,9 +37,9 @@ const Game: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="game-container">
       <h1>Number Guessing Game</h1>
-      <p>{gameState.feedback}</p>
+      <p className={gameState.feedback ? "feedback-message" : ""}>{gameState.feedback}</p>
       {!gameState.gameOver && (
         <div>
           <input
@@ -63,7 +63,7 @@ const Game: React.FC = () => {
       {gameState.gameOver && (
         <button onClick={handleRestart}>Play Again</button>
       )}
-      <div>
+      <div className="difficulty-selection">
         <p>Select Difficulty:</p>
         <label>
           <input
